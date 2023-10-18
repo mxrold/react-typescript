@@ -1,0 +1,1 @@
+export const getRandomNumer = (): number => Math.floor(Math.random() * 123) + 1;
