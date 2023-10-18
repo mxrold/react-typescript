@@ -11,6 +11,7 @@ export const RandomFox = ({ image }: Props): JSX.Element => {
       height="auto"
       src={image}
       className="mx-auto rounded-md bg-gray-300"
+      loading="lazy"
     />
   )
 }
