@@ -1,14 +1,19 @@
 import { useState } from "react";
 import { RandomFox } from "@/components/RandomFox"
 import { getRandomNumer } from "@/utils/getRandomNumer";
+import { generateId } from "@/utils/generateId";
 
+type ImageItem = {
+  id: string,
+  url: string
+}
 
 export default function Home() {
-  const [images, setImages] = useState<string[]>([
-    `https://randomfox.ca/images/${getRandomNumer()}.jpg`,
-    `https://randomfox.ca/images/${getRandomNumer()}.jpg`,
-    `https://randomfox.ca/images/${getRandomNumer()}.jpg`,
-    `https://randomfox.ca/images/${getRandomNumer()}.jpg`
+  const [images, setImages] = useState<ImageItem[]>([
+    { id: generateId(), url: `https://randomfox.ca/images/${getRandomNumer()}.jpg` },
+    { id: generateId(), url: `https://randomfox.ca/images/${getRandomNumer()}.jpg` },
+    { id: generateId(), url: `https://randomfox.ca/images/${getRandomNumer()}.jpg` },
+    { id: generateId(), url: `https://randomfox.ca/images/${getRandomNumer()}.jpg` }
   ]);
 
   return (
@@ -17,9 +22,9 @@ export default function Home() {
         Hello world!
       </h1>
       {
-        images.map((image, index) => (
-          <div className="p-4">
-            <RandomFox key={index} image={image} />
+        images.map(({ id, url }) => (
+          <div key={id} className="p-4">
+            <RandomFox image={url} />
           </div>
         ))
       }
