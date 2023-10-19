@@ -4,11 +4,6 @@ import { LazyImage } from "@/components/LazyImage"
 import { getRandomNumer } from "@/utils/getRandomNumer";
 import { generateId } from "@/utils/generateId";
 
-type ImageItem = {
-  id: string,
-  url: string
-}
-
 export default function Home() {
   const [images, setImages] = useState<ImageItem[]>([]);
 
