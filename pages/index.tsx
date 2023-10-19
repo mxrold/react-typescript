@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { MouseEventHandler } from "react";
-import { RandomFox } from "@/components/RandomFox"
+import { LazyImage } from "@/components/LazyImage"
 import { getRandomNumer } from "@/utils/getRandomNumer";
 import { generateId } from "@/utils/generateId";
 
@@ -32,7 +32,13 @@ export default function Home() {
       {
         images.map(({ id, url }) => (
           <div key={id} className="p-4">
-            <RandomFox image={url} />
+            <LazyImage 
+              src={url} 
+              width={"320"}
+              height={"auto"}
+              className={"mx-auto rounded-md bg-gray-300"}
+              onClick={() => console.log("OnClick")}
+            />
           </div>
         ))
       }
