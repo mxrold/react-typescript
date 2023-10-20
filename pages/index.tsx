@@ -16,6 +16,8 @@ export default function Home() {
     setImages([
       ...images, newImageItem
     ])
+
+    window.plausible(PlausibleEvents.ADD_FOX);
   }
 
   return (
@@ -27,8 +29,8 @@ export default function Home() {
       {
         images.map(({ id, url }) => (
           <div key={id} className="p-4">
-            <LazyImage 
-              src={url} 
+            <LazyImage
+              src={url}
               width={"320"}
               height={"auto"}
               className={"mx-auto rounded-md bg-gray-300"}
